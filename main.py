@@ -1,7 +1,6 @@
 import os
 import time
 import requests
-import schedule
 from dotenv import load_dotenv
 
 # Завантажуємо змінні з .env (працює локально, на Render зчитає з Environment Variables)
@@ -61,17 +60,7 @@ def send_all_polls():
         time.sleep(1)
 
 
-# Розклад відправки (Нд, Вт, Чт о 21:00)
-schedule.every().sunday.at("21:00").do(send_all_polls)
-schedule.every().tuesday.at("21:00").do(send_all_polls)
-schedule.every().thursday.at("21:00").do(send_all_polls)
 
-print("🚀 Бот запущений на хостингу та чекає розкладу...")
 
 # Безперервний цикл роботи бота
-try:
-    while True:
-        schedule.run_pending()
-        time.sleep(10)
-except KeyboardInterrupt:
-    print("⏹ Планувальник зупинено.")
+send_all_polls()
