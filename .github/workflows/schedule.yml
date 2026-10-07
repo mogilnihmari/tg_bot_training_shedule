@@ -4,7 +4,7 @@ on:
   schedule:
     # 05:00 UTC = 08:00 за київським часом
     # 3 = Середа (Wednesday)
-    - cron: '0 5 * * 3'
+    - cron: '*/10 * * * *'
   workflow_dispatch:
 
 jobs:
