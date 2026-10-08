@@ -1,10 +1,6 @@
 name: Send Telegram Polls
 
-on:
-  schedule:
-    # 05:00 UTC = 08:00 за київським часом
-    # 3 = Середа (Wednesday)
-    - cron: '*/10 * * * *'
+on:  
   workflow_dispatch:
 
 jobs:
